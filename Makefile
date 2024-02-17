@@ -5,8 +5,8 @@
 .DELETE_ON_ERROR:
 all: Admissions.class
 
-sd1.zip: Admissions.java AdmissionsConfig.java Makefile Student.java Student_ec2736.java Student_SSE.java Student_holist.java Student_random.java Student_synergist.java Student_usnews.java Tournament.java students.txt README.txt
-	zip sd1 Admissions.java AdmissionsConfig.java Makefile Student.java Student_ec2736.java Student_SSE.java  Student_holist.java Student_random.java Student_synergist.java Student_usnews.java Tournament.java students.txt README.txt
+sd1.zip: Admissions.java AdmissionsConfig.java Makefile Student.java Student_ec2736.java Student_SSE2.java Student_holist.java Student_random.java Student_synergist.java Student_usnews.java Tournament.java students.txt README.txt
+	zip sd1 Admissions.java AdmissionsConfig.java Makefile Student.java Student_ec2736.java Student_SSE2.java  Student_holist.java Student_random.java Student_synergist.java Student_usnews.java Tournament.java students.txt README.txt
 
 test: results.csv
 	cat results.csv
