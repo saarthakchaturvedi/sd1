@@ -1,4 +1,4 @@
-// Student.java: interface for Student
+  // Student.java: interface for Student
 // COS 445 HW1, Spring 2018
 // Created by Andrew Wonnacott
 
