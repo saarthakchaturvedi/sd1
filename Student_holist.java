@@ -33,6 +33,9 @@ public class Student_holist implements Student {
               ((aptitude + synergies.get(i)) / (S + W)));
     }
     Arrays.sort(preferences);
+    for (School s: preferences) {
+      System.out.println("quality: " + s.quality + ", index: " + s.index)
+    }
     // System.out.println("does this work??");
     int[] ret = new int[10];
     for (int i = 0; i < 10; i++) {
