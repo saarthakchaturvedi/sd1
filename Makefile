@@ -5,8 +5,8 @@
 .DELETE_ON_ERROR:
 all: Admissions.class
 
-sd1.zip: Admissions.java AdmissionsConfig.java Makefile Student.java Student_ec2736.java Student_holist.java Student_random.java Student_synergist.java Student_usnews.java Tournament.java students.txt README.txt
-	zip sd1 Admissions.java AdmissionsConfig.java Makefile Student.java Student_ec2736.java Student_holist.java Student_random.java Student_synergist.java Student_usnews.java Tournament.java students.txt README.txt
+sd1.zip: Admissions.java AdmissionsConfig.java Makefile Student.java Student_holist.java Student_random.java Student_synergist.java Student_usnews.java Tournament.java students.txt README.txt
+	zip sd1 Admissions.java AdmissionsConfig.java Makefile Student.java Student_holist.java Student_random.java Student_synergist.java Student_usnews.java Tournament.java students.txt README.txt
 
 test: results.csv
 	cat results.csv
@@ -20,9 +20,9 @@ Admissions.class: *.java
 teams.csv:
 	./get_teams_by_netid.py > teams.csv
 
-#students.txt: Student_*.java
-#	@touch students.txt
-#	@while [[ `wc -l < students.txt` -lt 12 ]]; do 	ls | grep -e 'Student_.*\.java' | sed s/.*Student_// | sed s/\.java$$// >> students.txt; done
+students.txt: Student_*.java
+	@touch students.txt
+	@while [[ `wc -l < students.txt` -lt 12 ]]; do 	ls | grep -e 'Student_.*\.java' | sed s/.*Student_// | sed s/\.java$$// >> students.txt; done
 
 clean:
 	rm -rf *.class sd1.zip #results.csv students.txt
