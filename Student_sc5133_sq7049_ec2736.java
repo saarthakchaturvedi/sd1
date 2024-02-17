@@ -1,7 +1,7 @@
 import java.util.List;
 import java.util.Arrays;
 
-public class Solution implements Student {
+public class Student_sc5133_sq7049_ec2736 implements Student {
     private class School implements Comparable<School> {
         public School(int i, double q) {
             index = i;
