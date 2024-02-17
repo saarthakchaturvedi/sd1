@@ -4,7 +4,6 @@
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 
 public class Student_random implements Student {
   private class School implements Comparable<School> {
@@ -34,15 +33,16 @@ public class Student_random implements Student {
               ((aptitude + synergies.get(i)) / (S + W)));
     }
     Arrays.sort(preferences);
-    for (School s : preferences) {
-      System.out.println("quality: " + s.quality + ", index: " + s.index);
-    }
+    // for (School s : preferences) {
+    // System.out.println("quality: " + s.quality + ", index: " + s.index);
+    // }
     // System.out.println("does this work??");
     int[] ret = new int[10];
     for (int i = 0; i < 10; i++) {
       ret[i] = preferences[i].index;
-      System.out
-          .println("applying to school with quality " + preferences[i].quality + ", at index " + preferences[i].index);
+      // System.out
+      // .println("applying to school with quality " + preferences[i].quality + ", at
+      // index " + preferences[i].index);
     }
     return ret;
   }
