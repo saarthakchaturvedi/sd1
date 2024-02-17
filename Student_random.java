@@ -29,7 +29,7 @@ public class Student_random implements Student {
     School[] preferences = new School[schools.size()];
     for (int i = 0; i < synergies.size(); i++) {
       preferences[i] = new School(i,
-          (synergies.get(i)) *
+          (synergies.get(i) + schools.get(i)) *
               ((aptitude + synergies.get(i)) / (S + W)));
     }
     Arrays.sort(preferences);
