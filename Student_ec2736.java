@@ -29,6 +29,7 @@ public class Student_ec2736 implements Student {
                             ((aptitude + synergies.get(i)) / (S + W)));
         }
         Arrays.sort(preferences);
+        System.out.println("does this work??");
         int[] ret = new int[10];
         for (int i = 0; i < 10; i++) {
             ret[i] = preferences[i].index;
