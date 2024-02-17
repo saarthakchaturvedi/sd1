@@ -16,7 +16,7 @@ public class Student_holist implements Student {
     private double quality;
 
     public int compareTo(School n) { // smaller pairs are higher quality
-      int ret = Double.compare(quality, n.quality);
+      int ret = Double.compare(n.quality, quality);
       return (ret == 0) ? (Integer.compare(index, n.index)) : ret;
     }
   }
@@ -33,7 +33,7 @@ public class Student_holist implements Student {
               ((aptitude + synergies.get(i)) / (S + W)));
     }
     Arrays.sort(preferences);
-    System.out.println("does this work??");
+    // System.out.println("does this work??");
     int[] ret = new int[10];
     for (int i = 0; i < 10; i++) {
       ret[i] = preferences[i].index;
