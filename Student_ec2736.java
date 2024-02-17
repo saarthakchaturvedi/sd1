@@ -26,7 +26,7 @@ public class Student_ec2736 implements Student {
         for (int i = 0; i < synergies.size(); i++) {
             preferences[i] = new School(i,
                     (synergies.get(i) + schools.get(i)) *
-                            ((aptitude + synergies.get(i)) / (S + W)));
+                            ((aptitude + synergies.get(i) + schools.get(i)) / (S + T + W)));
         }
         Arrays.sort(preferences);
         int[] ret = new int[10];
