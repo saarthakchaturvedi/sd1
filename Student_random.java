@@ -21,24 +21,28 @@ public class Student_random implements Student {
       return (ret == 0) ? (Integer.compare(index, n.index)) : ret;
     }
   }
+  // if n.quality is less than quality, returns -1
+  // if n.quality is greater than quality, returns 1
 
-  public int[] getApplications(
-      int N,
-      double S,
-      double T,
-      double W,
-      double aptitude,
-      List<Double> schools,
+  public int[] getApplications(int N, double S, double T, double W, double aptitude, List<Double> schools,
       List<Double> synergies) {
-    final Random rand = new Random();
+
     School[] preferences = new School[schools.size()];
-    for (int i = 0; i != synergies.size(); ++i) {
-      preferences[i] = new School(i, rand.nextDouble());
+    for (int i = 0; i < synergies.size(); i++) {
+      preferences[i] = new School(i,
+          (synergies.get(i)) *
+              ((aptitude + synergies.get(i)) / (S + W)));
     }
     Arrays.sort(preferences);
+    for (School s : preferences) {
+      System.out.println("quality: " + s.quality + ", index: " + s.index);
+    }
+    // System.out.println("does this work??");
     int[] ret = new int[10];
-    for (int i = 0; i != 10; ++i) {
+    for (int i = 0; i < 10; i++) {
       ret[i] = preferences[i].index;
+      System.out
+          .println("applying to school with quality " + preferences[i].quality + ", at index " + preferences[i].index);
     }
     return ret;
   }
