@@ -46,7 +46,7 @@ public class Student_usnews implements Student {
     int numProbAcceptances = 0;
     for (int i = 0; i < synergies.size(); i++) {
       double prob = (synergies.get(i) + aptitude) / (S + W);
-      if ((N - ((int) prob * N)) < 56) {
+      if ((N - ((int) (prob * N))) < 10) {
 
         preferences[i] = new School(i,
             (synergies.get(i) + schools.get(i)) *
@@ -58,7 +58,7 @@ public class Student_usnews implements Student {
     }
     Arrays.sort(preferences);
     // System.out.println("does this work??");
-    System.out.println("N: " + N + ", S: " + S + ", aptitude: " + aptitude);
+    // System.out.println("N: " + N + ", S: " + S + ", aptitude: " + aptitude);
     // System.out.println("numPRobAcceptances, " + numProbAcceptances);
     int[] ret = new int[10];
     for (int i = 0; i < 10; i++) {
