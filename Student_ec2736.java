@@ -23,21 +23,13 @@ public class Student_ec2736 implements Student {
             List<Double> synergies) {
 
         School[] preferences = new School[schools.size()];
-        if (N - (int) ((aptitude / S) * N) < 10) {
-            for (int i = 0; i < synergies.size(); i++) {
-                preferences[i] = new School(i, synergies.get(i) + schools.get(i));
-            }
-        } else {
-
-            for (int i = 0; i < synergies.size(); i++) {
-                double prob = (aptitude + synergies.get(i)) / (S + W);
-                if ((N - (int) (prob * N) < 10)) {
-
-                }
-                preferences[i] = new School(i,
-                        (synergies.get(i) + schools.get(i)) *
-                                ((aptitude + synergies.get(i)) / (S + W)));
-
+        for (int i = 0; i < schools.size(); i++) {
+            double probAcceptance = (aptitude + synergies.get(i)) / (S + W);
+            boolean shouldApply = (schools.get(i) / W) > ((aptitude + synergies.get(i)) / (S + W));
+            if (shouldApply) {
+                preferences[i] = new School(i, probAcceptance * (schools.get(i) + synergies.get(i)));
+            } else {
+                preferences[i] = new School(i, -1);
             }
         }
         Arrays.sort(preferences);
