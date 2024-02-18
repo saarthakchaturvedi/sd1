@@ -47,7 +47,7 @@ public class Student_usnews implements Student {
     for (int i = 0; i < synergies.size(); i++) {
       double prob = (synergies.get(i) + aptitude) / (S + W);
       System.out.println("NumBetter students for this school: " + (N - ((int) (prob * N))));
-      if ((N - ((int) (prob * N))) < 10) {
+      if ((N - ((int) (prob * N))) < 15) {
 
         preferences[i] = new School(i,
             (synergies.get(i) + schools.get(i)) *
