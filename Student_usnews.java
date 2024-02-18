@@ -45,7 +45,7 @@ public class Student_usnews implements Student {
     School[] preferences = new School[schools.size()];
     for (int i = 0; i < synergies.size(); i++) {
       double prob = (aptitude + synergies.get(i)) / (S + W);
-      if ((N - (int) prob * N) > 10) {
+      if ((N - ((int) prob * N)) > 10) {
         preferences[i] = new School(i, 0);
       } else {
         preferences[i] = new School(i, synergies.get(i) + schools.get(i));
