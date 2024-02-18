@@ -41,8 +41,7 @@ public class Student_usnews implements Student {
 
   public int[] getApplications(int N, double S, double T, double W, double aptitude, List<Double> schools,
       List<Double> synergies) {
-    if (T == 0)
-      System.out.println("T is 0");
+    System.out.println(T);
     School[] preferences = new School[schools.size()];
     for (int i = 0; i < schools.size(); i++) {
       double probAcceptance = (aptitude + synergies.get(i)) / (S + W);
