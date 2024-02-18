@@ -47,12 +47,14 @@ public class Student_usnews implements Student {
       double prob = (aptitude + synergies.get(i)) / (S + W);
       System.out.println(prob);
       // if ((N - ((int) prob * N)) > 10) {
-      //   preferences[i] = new School(i, 0);
+      // preferences[i] = new School(i, 0);
       // } else {
-      //   // ((aptitude + synergies.get(i)) / (S + W)));
-      //   System.out.println("actually considering index " + i + " with score " + synergies.get(i) + schools.get(i));
+      // // ((aptitude + synergies.get(i)) / (S + W)));
+      // System.out.println("actually considering index " + i + " with score " +
+      // synergies.get(i) + schools.get(i));
       // }
-      preferences[i] = new School(i, synergies.get(i) + schools.get(i));
+      // preferences[i] = new School(i, synergies.get(i) + schools.get(i));
+      preferences[i] = new School(i, prob);
     }
     Arrays.sort(preferences);
 
