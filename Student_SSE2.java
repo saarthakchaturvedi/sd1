@@ -12,7 +12,7 @@ public class Student_SSE2 implements Student {
         private double quality;
 
         public int compareTo(School n) { // smaller pairs are higher quality
-            int ret = Double.compare(quality, n.quality);
+            int ret = Double.compare(n.quality, quality);
             return (ret == 0) ? (Integer.compare(index, n.index)) : ret;
         }
     }
