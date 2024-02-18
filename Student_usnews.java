@@ -58,8 +58,8 @@ public class Student_usnews implements Student {
     }
     Arrays.sort(preferences);
     // System.out.println("does this work??");
-    if (numProbAcceptances < 10)
-      System.out.println("something is funky");
+    if (numProbAcceptances >= 10)
+      System.out.println("something is not funky");
     int[] ret = new int[10];
     for (int i = 0; i < 10; i++) {
       ret[i] = preferences[i].index;
