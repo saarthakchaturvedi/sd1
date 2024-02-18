@@ -24,6 +24,9 @@ public class Student_ec2736 implements Student {
 
         School[] preferences = new School[schools.size()];
         for (int i = 0; i < schools.size(); i++) {
+            if (T < 100) {
+                preferences[i] = new School(i, )
+            }
             double probAcceptance = (aptitude + synergies.get(i)) / (S + W);
             boolean shouldApply = (schools.get(i) / W) > ((aptitude + synergies.get(i)) / (S + W));
             if (shouldApply) {
