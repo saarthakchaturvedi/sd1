@@ -123,7 +123,8 @@ public class Student_ec2736 implements Student {
         // for (School s: preferences) {
         // System.out.println("school: " + s.index + ", quality: " + s.quality);
         // }
-        int rank = N - 1 - ((int) ((aptitude / S) * N));
+        int rank = N - ((int) ((aptitude / S) * N));
+        System.out.println("RanK: " + rank);
         if (rank < 10) {
             int[] ret2 = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
             return ret2;
