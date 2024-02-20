@@ -1,0 +1,133 @@
+Implementation:
+
+ if (W < 10) {
+                preferences[i] = new School(i,
+                        (synergies.get(i) + schools.get(i)) *
+                                (aptitude / S));
+            } else {
+                preferences[i] = new School(i,
+                        (synergies.get(i) + schools.get(i)) *
+                                (aptitude / S + synergies.get(i) / W));
+            }
+Result:
+
+ec2736,0.5587999999999996
+holist,0.5633999999999995
+random,0.5584999999999998
+synergist,0.5603999999999997
+usnews,0.5644000000000003
+ec2736,0.5795999999999998
+holist,0.5731999999999993
+random,0.5658000000000003
+synergist,0.5537999999999995
+usnews,0.5514999999999999
+
+Implementation: Part A 
+Result: 
+ec2736,0.5715999999999993
+holist,0.5695999999999994
+random,0.5576999999999999
+synergist,0.5422000000000003
+usnews,0.5867000000000001
+ec2736,0.5494999999999999
+holist,0.5588
+random,0.5676999999999999
+synergist,0.5752999999999993
+usnews,0.5498999999999999
+
+Implementation: 
+if (W < 10) {
+                preferences[i] = new School(i,
+                        (synergies.get(i) + schools.get(i)) *
+                                (aptitude / S));
+            } else {
+                preferences[i] = new School(i,
+                        (T / (T + W)) * (synergies.get(i) + schools.get(i)) *
+                                (W / (W + T)) * (aptitude / S + synergies.get(i) / W));
+            }
+
+Result:
+ec2736,0.5751999999999999
+holist,0.5774000000000004
+random,0.5729999999999994
+synergist,0.5592999999999989
+usnews,0.5565000000000004
+ec2736,0.5561000000000005
+holist,0.5465000000000001
+random,0.5626000000000002
+synergist,0.5591999999999996
+usnews,0.5693999999999987
+
+Implementation:
+if (W < 10) {
+                preferences[i] = new School(i,
+                        (synergies.get(i) + schools.get(i)) *
+                                (aptitude / S));
+            } else {
+                preferences[i] = new School(i,
+                        ((T / (T + W)) * synergies.get(i) + (W / (W + T)) * schools.get(i)) *
+                                (aptitude / S + synergies.get(i) / W));
+            }
+Result:
+ec2736,0.566199999999999
+holist,0.5576000000000005
+random,0.5594999999999994
+synergist,0.5766
+usnews,0.5603999999999999
+ec2736,0.5578999999999994
+holist,0.5673000000000001
+random,0.5530999999999997
+synergist,0.5654999999999991
+usnews,0.5652999999999996
+
+
+Implementation:
+ preferences[i] = new School(i,
+                    ((T / (T + W)) * synergies.get(i) + (W / (W + T)) * schools.get(i)) *
+                            ((aptitude / S) * (S / (S + W)) + (W / (W + S)) * (synergies.get(i) / W)));
+
+Result:
+ec2736,0.5723999999999999
+holist,0.5613000000000002
+random,0.5546999999999995
+synergist,0.5517999999999998
+usnews,0.5574999999999992
+ec2736,0.5689
+holist,0.5679999999999996
+random,0.5609999999999996
+synergist,0.5650999999999999
+usnews,0.5737999999999998
+
+
+Implementation: 
+preferences[i] = new School(i,
+    ((T / W) * synergies.get(i) + schools.get(i)) *
+    ((aptitude / S) * (S / W) + (synergies.get(i) / W)));
+Results:
+ec2736,0.5575999999999993
+holist,0.5536999999999997
+random,0.5745999999999994
+synergist,0.5640000000000007
+usnews,0.5590999999999996
+ec2736,0.5688999999999997
+holist,0.5734999999999997
+random,0.5387000000000002
+synergist,0.5809000000000003
+usnews,0.5692000000000002
+
+Implementation (sepWeight8)
+double benefit = (((S / (S + W)) * synergies.get(i))) + schools.get(i);
+            double prob = (aptitude + synergies.get(i)) / (T + W);
+
+Results:
+ec2736,0.5611000000000005
+holist,0.5734999999999992
+random,0.5639999999999996
+synergist,0.5612999999999994
+usnews,0.5615999999999999
+ec2736,0.5565999999999994
+holist,0.5754999999999995
+random,0.5478999999999999
+synergist,0.5670999999999999
+usnews,0.5661999999999994
+

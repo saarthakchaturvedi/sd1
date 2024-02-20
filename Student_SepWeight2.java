@@ -1,12 +1,7 @@
-
-// Student_random.java: sample implementation for Student
-// COS 445 HW1, Spring 2018
-// Created by Andrew Wonnacott
-
 import java.util.Arrays;
 import java.util.List;
 
-public class Student_random2 implements Student {
+public class Student_SepWeight2 implements Student {
     private class School implements Comparable<School> {
         public School(int i, double q) {
             index = i;
@@ -29,9 +24,20 @@ public class Student_random2 implements Student {
 
         School[] preferences = new School[schools.size()];
         for (int i = 0; i < synergies.size(); i++) {
-            preferences[i] = new School(i, (aptitude + synergies.get(i)) / (S + W));
+            // if (W < 10) {
+            // preferences[i] = new School(i,
+            // (synergies.get(i) + schools.get(i)) *
+            // (aptitude / S));
+            // } else {
+            preferences[i] = new School(i,
+                    ((T / W) * synergies.get(i) + schools.get(i)) *
+                            ((aptitude / S) * (S / W) + (synergies.get(i) / W)));
+            // }
         }
         Arrays.sort(preferences);
+        // for (School s: preferences) {
+        // System.out.println("school: " + s.index + ", quality: " + s.quality);
+        //
         int[] ret = new int[10];
         for (int i = 0; i < 10; i++) {
             ret[i] = preferences[i].index;
