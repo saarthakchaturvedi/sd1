@@ -34,7 +34,7 @@ public class Student_ec2736 implements Student {
                 prob *= lambda[0];
             else if (prob < .4)
                 prob *= lambda[1];
-            else if (prob < .6)
+            else if (prob < .6) 
                 prob *= lambda[2];
             else if (prob < .8)
                 prob *= lambda[3];
