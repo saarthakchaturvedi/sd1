@@ -34,7 +34,7 @@ public class Student_SepWeight9 implements Student {
 
             preferences[i] = new School(i, prob * (schools.get(i) + synergies.get(i)));
 
-            sortedByPayoff[i] = new School(i, schools.get(i) + synergies.get(i));
+            sortedByPayoff[i] = new School(i, schools.get(i));
         }
         Arrays.sort(preferences);
         Arrays.sort(sortedByPayoff);
