@@ -32,7 +32,7 @@ public class Student_SepWeight9 implements Student {
         for (int i = 0; i < synergies.size(); i++) {
             double prob = ((aptitude + synergies.get(i)) / (W + S));
 
-            preferences[i] = new School(i, prob);
+            preferences[i] = new School(i, prob * (schools.get(i) + synergies.get(i)));
 
             sortedByPayoff[i] = new School(i, schools.get(i) + synergies.get(i));
         }
@@ -41,7 +41,7 @@ public class Student_SepWeight9 implements Student {
 
         int[] ret = new int[10];
         ret[0] = preferences[0].index;
-        System.out.println("Highest Prob U has prob " + preferences[0].quality +", and has payoff " + (synergies.get(preferences[0].index) + schools.get(preferences[0].index)));
+        System.out.println("Highest Prob U has quality " + preferences[0].quality);
         int guaranteedIndex = -1;
         for (int i = 0; i < sortedByPayoff.length; i++) {
             if (sortedByPayoff[i].index == ret[0]) {
