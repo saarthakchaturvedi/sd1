@@ -19,44 +19,45 @@ public class Student_ec2736 implements Student {
 
     // if n.quality is less than quality, returns -1
     // if n.quality is greater than quality, returns 1
-    public int[] getApplications(int N, double S, double T, double W, double aptitude, List<Double> schools,
-            List<Double> synergies) {
-        School[] preferences = new School[schools.size()];
-        School[] sortedByPayoff = new School[schools.size()];
+    // public int[] getApplications(int N, double S, double T, double W, double
+    // aptitude, List<Double> schools,
+    // List<Double> synergies) {
+    // School[] preferences = new School[schools.size()];
+    // School[] sortedByPayoff = new School[schools.size()];
 
-        // TODO
-        // doesn't take into account N, T, or the relative size of S/W and W/T
-        // does take into account aptitude + synergy relative to other applicants for
-        // each university.
-        // double[] lambda = { .5, 1, 2, 4, 8};
-        for (int i = 0; i < synergies.size(); i++) {
-            double prob = ((aptitude + synergies.get(i)) / (W + S));
+    // // TODO
+    // // doesn't take into account N, T, or the relative size of S/W and W/T
+    // // does take into account aptitude + synergy relative to other applicants for
+    // // each university.
+    // // double[] lambda = { .5, 1, 2, 4, 8};
+    // for (int i = 0; i < synergies.size(); i++) {
+    // double prob = ((aptitude + synergies.get(i)) / (W + S));
 
-            preferences[i] = new School(i, prob);
+    // preferences[i] = new School(i, prob);
 
-            sortedByPayoff[i] = new School(i, schools.get(i) + synergies.get(i));
-        }
-        Arrays.sort(preferences);
-        Arrays.sort(sortedByPayoff);
+    // sortedByPayoff[i] = new School(i, schools.get(i) + synergies.get(i));
+    // }
+    // Arrays.sort(preferences);
+    // Arrays.sort(sortedByPayoff);
 
-        int[] ret = new int[10];
-        ret[0] = preferences[0].index;
-        int guaranteedIndex = -1;
-        for (int i = 0; i < sortedByPayoff.length; i++) {
-            if (sortedByPayoff[i].index == ret[0]) {
-                guaranteedIndex = i;
-                break;
-            }
-        }
-        if (guaranteedIndex < 10) {
-            int[] ret2 = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-            return ret2;
-        }
-        for (int i = 1; i < 10; i++) {
-            ret[i] = sortedByPayoff[guaranteedIndex - i].index;
-        }
-        return ret;
-    }
+    // int[] ret = new int[10];
+    // ret[0] = preferences[0].index;
+    // int guaranteedIndex = -1;
+    // for (int i = 0; i < sortedByPayoff.length; i++) {
+    // if (sortedByPayoff[i].index == ret[0]) {
+    // guaranteedIndex = i;
+    // break;
+    // }
+    // }
+    // if (guaranteedIndex < 10) {
+    // int[] ret2 = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+    // return ret2;
+    // }
+    // for (int i = 1; i < 10; i++) {
+    // ret[i] = sortedByPayoff[guaranteedIndex - i].index;
+    // }
+    // return ret;
+    // }
     // public int[] getApplications(int N, double S, double T, double W, double
     // aptitude, List<Double> schools,
     // List<Double> synergies) {
@@ -95,15 +96,9 @@ public class Student_ec2736 implements Student {
 
     // School[] preferences = new School[schools.size()];
     // for (int i = 0; i < synergies.size(); i++) {
-    // if (W < 10) {
     // preferences[i] = new School(i,
-    // (synergies.get(i) + schools.get(i)) *
-    // (aptitude / S));
-    // } else {
-    // preferences[i] = new School(i,
-    // (synergies.get(i) + schools.get(i)) *
-    // (aptitude / S + synergies.get(i) / W));
-    // }
+    // ((W / (T + W)) * synergies.get(i) + (T / (W + T)) * schools.get(i)) *
+    // ((aptitude + synergies.get(i)) / (S + W)));
     // }
     // Arrays.sort(preferences);
     // // for (School s: preferences) {
@@ -115,6 +110,30 @@ public class Student_ec2736 implements Student {
     // }
     // return ret;
     // }
+    public int[] getApplications(int N, double S, double T, double W, double aptitude, List<Double> schools,
+            List<Double> synergies) {
+
+        School[] preferences = new School[schools.size()];
+        for (int i = 0; i < synergies.size(); i++) {
+
+            preferences[i] = new School(i, schools.get(i));
+
+        }
+        Arrays.sort(preferences);
+        // for (School s: preferences) {
+        // System.out.println("school: " + s.index + ", quality: " + s.quality);
+        // }
+        int rank = N - ((int) (aptitude / S));
+        if (rank < 10) {
+            int[] ret2 = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+            return ret2;
+        }
+        int[] ret = new int[10];
+        for (int i = 0; i < 10; i++) {
+            ret[i] = preferences[rank - i].index;
+        }
+        return ret;
+    }
 }
 
 // Part B
